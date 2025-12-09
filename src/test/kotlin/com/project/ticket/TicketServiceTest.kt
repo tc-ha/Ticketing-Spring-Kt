@@ -2,21 +2,41 @@ package com.project.ticket
 
 import com.project.ticket.TicketRepository
 import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import java.util.concurrent.CountDownLatch
 import java.util.concurrent.Executors
 import java.util.concurrent.atomic.AtomicInteger
+import javax.sql.DataSource
 
 @SpringBootTest
 class TicketServiceTest @Autowired constructor(
     private val ticketService: TicketService,
-    private val ticketRepository: TicketRepository
+    private val ticketRepository: TicketRepository,
+    private val dataSource: DataSource,
+    private val itemRepository: ItemRepository
 ) {
+    @BeforeEach
+    fun setUp() {
+        ticketRepository.deleteAll()
+
+        // Item 초기화 (stockCount = 100)
+        val item = itemRepository.findById(1L).orElse(null)
+        if (item != null) {
+            item.stockCount = 100
+            itemRepository.save(item)
+        } else {
+            itemRepository.save(Item(1L, 100))
+        }
+    }
 
     @Test
     fun `동시에 1000명이 요청해도 100개만 팔려야 한다`() {
+
+        println("=== Test Start: 동시에 1000명이 요청해도 100개만 팔려야 한다 ===")
+
         // Given
         val threadCount = 1000 // 1000명의 동시 접속자
         // ExecutorService: 비동기 작업을 수행하는 스레드 풀 (32개 스레드가 동시에 공격)
@@ -45,5 +65,12 @@ class TicketServiceTest @Autowired constructor(
 
         // 우리는 100개가 되길 기대하지만, 실제로는 100개가 넘을 것임
         assertEquals(100, count)
+    }
+
+    @Test
+    fun `MySQL 사용 확인`() {
+        val connection = dataSource.connection
+        println("Database: ${connection.metaData.databaseProductName}")
+        // 출력: Database: MySQL
     }
 }

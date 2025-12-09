@@ -7,24 +7,28 @@ import org.springframework.transaction.annotation.Transactional
 
 @Service
 class TicketService(
-    private val ticketRepository: TicketRepository
+    private val ticketRepository: TicketRepository,
+    private val itemRepository: ItemRepository
 ) {
     private val MAX_COUNT = 100 // 딱 100명만 선착순
 
-    // @Transactional: 이 함수 전체가 하나의 트랜잭션(원자적 작업 단위)으로 묶입니다.
-    // 하지만 이것만으로는 동시성 문제를 해결할 수 없습니다.
+    // @Transactional: 이 함수 전체가 하나의 트랜잭션(원자적 작업 단위)으로 묶음
+    // 하지만 이것만으로는 동시성 문제를 해결할 수 없음
     @Transactional
     fun buyTicket(userId: String): String {
         // 1. 현재 판매량 조회 (Check)
-        val currentCount = ticketRepository.count()
+        // Item 정보를 가져오면서 다른 스레드 접근을 막 (줄 세우기)
+        val item = itemRepository.findByIdWithLock(1L).orElseThrow { RuntimeException("재고 없음") }
 
-        // 2. 재고 확인
-        if (currentCount >= MAX_COUNT) {
+        // 2. 재고 확인 (이미 락이 걸려있으므로 안전)
+        if (item.stockCount <= 0) {
             return "SOLD_OUT"
         }
 
         // 3. 구매 처리 (Act)
-        // 로직이 너무 빨리 돌면 테스트가 재미없으니,
+        // Dirty checking에 의해 트랜잭션 커밋 시점에 Update 쿼리 나감
+        item.decreaseStock()
+
         // 실제 결제 외부 연동 같은 딜레이가 있다고 가정(10ms)
         Thread.sleep(10)
 
