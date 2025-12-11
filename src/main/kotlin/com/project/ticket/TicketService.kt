@@ -30,7 +30,7 @@ class TicketService(
         item.decreaseStock()
 
         // 실제 결제 외부 연동 같은 딜레이가 있다고 가정(10ms)
-        Thread.sleep(10)
+        Thread.sleep(100)
 
         val ticket = Ticket(userId = userId)
         ticketRepository.save(ticket)
