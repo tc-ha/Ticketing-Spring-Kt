@@ -1,15 +1,21 @@
 spring:
   application:
     name: ticket-service
+
   datasource:
-    url: jdbc:mysql://localhost:3306/ticket_db?useSSL=false&serverTimezone=Asia/Seoul&allowPublicKeyRetrieval=true
+    url: jdbc:mysql://localhost:3306/ticketing?useSSL=false&serverTimezone=Asia/Seoul&allowPublicKeyRetrieval=true
     username: root
     password: root1234
     driver-class-name: com.mysql.cj.jdbc.Driver
-
+    hikari:
+      maximum-pool-size: 20 # (코어 수 * 2) + effective_spindle_count
   jpa:
     hibernate:
       ddl-auto: update
+    defer-datasource-initialization: true
+  sql:
+    init:
+      mode: always
     show-sql: true
     properties:
       hibernate:
@@ -18,7 +24,7 @@ spring:
 
 logging:
   level:
-    org.hibernate.orm.jdbc.bind: TRACE
+    org.hibernate.orm.jdbc.bind: OFF
 
 management:
   endpoints:

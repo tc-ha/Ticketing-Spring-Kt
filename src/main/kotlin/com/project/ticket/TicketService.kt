@@ -2,6 +2,7 @@ package com.project.ticket
 
 import com.project.ticket.Ticket
 import com.project.ticket.TicketRepository
+import org.springframework.orm.ObjectOptimisticLockingFailureException
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 
@@ -10,7 +11,29 @@ class TicketService(
     private val ticketRepository: TicketRepository,
     private val itemRepository: ItemRepository
 ) {
-    private val MAX_COUNT = 100 // 딱 100명만 선착순
+    private val MAX_RETRY = 50
+
+    fun buyTicketWithRetry(userId: String): String {
+        var attempts = 0
+
+        while (attempts < MAX_RETRY) {
+            try {
+                return buyTicket(userId)
+            } catch (e: ObjectOptimisticLockingFailureException) {
+                attempts++
+
+                if (attempts >= MAX_RETRY) {
+                    return "RETRY_EXCEEDED"
+                }
+
+                Thread.sleep((Math.random() * 10).toLong())
+            } catch (e: IllegalStateException) {
+                return "SOLD_OUT"
+            }
+        }
+
+        return "RETRY_EXCEEDED"
+    }
 
     // @Transactional: 이 함수 전체가 하나의 트랜잭션(원자적 작업 단위)으로 묶음
     // 하지만 이것만으로는 동시성 문제를 해결할 수 없음

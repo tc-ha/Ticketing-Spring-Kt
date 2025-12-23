@@ -1,0 +1,144 @@
+
+         /\      Grafana   /‾‾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ‾‾\ 
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+     execution: local
+        script: /Users/htc/Downloads/ticket/src/main/resources/k6/ticketing.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 100 max VUs, 1m0s max duration (incl. graceful stop):
+              * spike: 100 looping VUs for 30s (gracefulStop: 30s)
+
+
+running (0m01.0s), 100/100 VUs, 8 complete and 0 interrupted iterations
+spike   [   3% ] 100 VUs  01.0s/30s
+
+running (0m02.0s), 100/100 VUs, 17 complete and 0 interrupted iterations
+spike   [   7% ] 100 VUs  02.0s/30s
+
+running (0m03.0s), 100/100 VUs, 26 complete and 0 interrupted iterations
+spike   [  10% ] 100 VUs  03.0s/30s
+
+running (0m04.0s), 100/100 VUs, 35 complete and 0 interrupted iterations
+spike   [  13% ] 100 VUs  04.0s/30s
+
+running (0m05.0s), 100/100 VUs, 44 complete and 0 interrupted iterations
+spike   [  17% ] 100 VUs  05.0s/30s
+
+running (0m06.0s), 100/100 VUs, 53 complete and 0 interrupted iterations
+spike   [  20% ] 100 VUs  06.0s/30s
+
+running (0m07.0s), 100/100 VUs, 62 complete and 0 interrupted iterations
+spike   [  23% ] 100 VUs  07.0s/30s
+
+running (0m08.0s), 100/100 VUs, 71 complete and 0 interrupted iterations
+spike   [  27% ] 100 VUs  08.0s/30s
+
+running (0m09.0s), 100/100 VUs, 79 complete and 0 interrupted iterations
+spike   [  30% ] 100 VUs  09.0s/30s
+
+running (0m10.0s), 100/100 VUs, 88 complete and 0 interrupted iterations
+spike   [  33% ] 100 VUs  10.0s/30s
+
+running (0m11.0s), 100/100 VUs, 97 complete and 0 interrupted iterations
+spike   [  37% ] 100 VUs  11.0s/30s
+
+running (0m12.0s), 100/100 VUs, 1253 complete and 0 interrupted iterations
+spike   [  40% ] 100 VUs  12.0s/30s
+
+running (0m13.0s), 100/100 VUs, 2750 complete and 0 interrupted iterations
+spike   [  43% ] 100 VUs  13.0s/30s
+
+running (0m14.0s), 100/100 VUs, 4282 complete and 0 interrupted iterations
+spike   [  47% ] 100 VUs  14.0s/30s
+
+running (0m15.0s), 100/100 VUs, 5865 complete and 0 interrupted iterations
+spike   [  50% ] 100 VUs  15.0s/30s
+
+running (0m16.0s), 100/100 VUs, 7395 complete and 0 interrupted iterations
+spike   [  53% ] 100 VUs  16.0s/30s
+
+running (0m17.0s), 100/100 VUs, 8577 complete and 0 interrupted iterations
+spike   [  57% ] 100 VUs  17.0s/30s
+
+running (0m18.0s), 100/100 VUs, 9649 complete and 0 interrupted iterations
+spike   [  60% ] 100 VUs  18.0s/30s
+
+running (0m19.0s), 100/100 VUs, 10806 complete and 0 interrupted iterations
+spike   [  63% ] 100 VUs  19.0s/30s
+time="2025-12-22T20:15:08+09:00" level=warning msg="The test has generated metrics with 100451 unique time series, which is higher than the suggested limit of 100000 and could cause high memory usage. Consider not using high-cardinality values like unique IDs as metric tags or, if you need them in the URL, use the name metric tag or URL grouping. See https://grafana.com/docs/k6/latest/using-k6/tags-and-groups/ for details." component=metrics-engine-ingester
+
+running (0m20.0s), 100/100 VUs, 12109 complete and 0 interrupted iterations
+spike   [  67% ] 100 VUs  20.0s/30s
+
+running (0m21.0s), 100/100 VUs, 13683 complete and 0 interrupted iterations
+spike   [  70% ] 100 VUs  21.0s/30s
+
+running (0m22.0s), 100/100 VUs, 15246 complete and 0 interrupted iterations
+spike   [  73% ] 100 VUs  22.0s/30s
+
+running (0m23.0s), 100/100 VUs, 16773 complete and 0 interrupted iterations
+spike   [  77% ] 100 VUs  23.0s/30s
+
+running (0m24.0s), 100/100 VUs, 17814 complete and 0 interrupted iterations
+spike   [  80% ] 100 VUs  24.0s/30s
+
+running (0m25.0s), 100/100 VUs, 19373 complete and 0 interrupted iterations
+spike   [  83% ] 100 VUs  25.0s/30s
+
+running (0m26.0s), 100/100 VUs, 20955 complete and 0 interrupted iterations
+spike   [  87% ] 100 VUs  26.0s/30s
+
+running (0m27.0s), 100/100 VUs, 22224 complete and 0 interrupted iterations
+spike   [  90% ] 100 VUs  27.0s/30s
+time="2025-12-22T20:15:16+09:00" level=warning msg="The test has generated metrics with 200027 unique time series, which is higher than the suggested limit of 100000 and could cause high memory usage. Consider not using high-cardinality values like unique IDs as metric tags or, if you need them in the URL, use the name metric tag or URL grouping. See https://grafana.com/docs/k6/latest/using-k6/tags-and-groups/ for details." component=metrics-engine-ingester
+
+running (0m28.0s), 100/100 VUs, 23525 complete and 0 interrupted iterations
+spike   [  93% ] 100 VUs  28.0s/30s
+
+running (0m29.0s), 100/100 VUs, 25065 complete and 0 interrupted iterations
+spike   [  97% ] 100 VUs  29.0s/30s
+
+running (0m30.0s), 100/100 VUs, 26678 complete and 0 interrupted iterations
+spike   [ 100% ] 100 VUs  30.0s/30s
+
+
+  █ TOTAL RESULTS 
+
+    checks_total.......: 26786  890.790738/s
+    checks_succeeded...: 0.37%  100 out of 26786
+    checks_failed......: 99.62% 26686 out of 26786
+
+    ✗ bought ticket
+      ↳  0% — ✓ 100 / ✗ 26686
+
+    CUSTOM
+    count_fail.....................: 26686  887.465155/s
+    count_success..................: 100    3.325583/s
+    duration_fail..................: avg=91.218637  min=10.505  med=64.7395  max=11102.046 p(90)=85         p(95)=108.9215  
+    duration_success...............: avg=5670.09085 min=116.778 med=5657.488 max=11215.302 p(90)=10125.6097 p(95)=10673.9173
+
+    HTTP
+    http_req_duration..............: avg=112.04ms   min=10.5ms  med=64.77ms  max=11.21s    p(90)=85.88ms    p(95)=112.2ms   
+      { expected_response:true }...: avg=112.04ms   min=10.5ms  med=64.77ms  max=11.21s    p(90)=85.88ms    p(95)=112.2ms   
+    http_req_failed................: 0.00%  0 out of 26786
+    http_reqs......................: 26786  890.790738/s
+
+    EXECUTION
+    iteration_duration.............: avg=112.11ms   min=10.54ms med=64.82ms  max=11.21s    p(90)=85.97ms    p(95)=112.38ms  
+    iterations.....................: 26786  890.790738/s
+    vus............................: 100    min=100        max=100
+    vus_max........................: 100    min=100        max=100
+
+    NETWORK
+    data_received..................: 3.2 MB 108 kB/s
+    data_sent......................: 3.2 MB 107 kB/s
+
+
+
+
+running (0m30.1s), 000/100 VUs, 26786 complete and 0 interrupted iterations
+spike ✓ [ 100% ] 100 VUs  30s

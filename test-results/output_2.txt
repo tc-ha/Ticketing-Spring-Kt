@@ -1,0 +1,143 @@
+
+         /\      Grafana   /‾‾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ‾‾\ 
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+     execution: local
+        script: /Users/htc/Downloads/ticket/src/main/resources/k6/ticketing.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 100 max VUs, 1m0s max duration (incl. graceful stop):
+              * spike: 100 looping VUs for 30s (gracefulStop: 30s)
+
+
+running (0m01.0s), 100/100 VUs, 8 complete and 0 interrupted iterations
+spike   [   3% ] 100 VUs  01.0s/30s
+
+running (0m02.0s), 100/100 VUs, 17 complete and 0 interrupted iterations
+spike   [   7% ] 100 VUs  02.0s/30s
+
+running (0m03.0s), 100/100 VUs, 26 complete and 0 interrupted iterations
+spike   [  10% ] 100 VUs  03.0s/30s
+
+running (0m04.0s), 100/100 VUs, 35 complete and 0 interrupted iterations
+spike   [  13% ] 100 VUs  04.0s/30s
+
+running (0m05.0s), 100/100 VUs, 44 complete and 0 interrupted iterations
+spike   [  17% ] 100 VUs  05.0s/30s
+
+running (0m06.0s), 100/100 VUs, 52 complete and 0 interrupted iterations
+spike   [  20% ] 100 VUs  06.0s/30s
+
+running (0m07.0s), 100/100 VUs, 61 complete and 0 interrupted iterations
+spike   [  23% ] 100 VUs  07.0s/30s
+
+running (0m08.0s), 100/100 VUs, 70 complete and 0 interrupted iterations
+spike   [  27% ] 100 VUs  08.0s/30s
+
+running (0m09.0s), 100/100 VUs, 79 complete and 0 interrupted iterations
+spike   [  30% ] 100 VUs  09.0s/30s
+
+running (0m10.0s), 100/100 VUs, 88 complete and 0 interrupted iterations
+spike   [  33% ] 100 VUs  10.0s/30s
+
+running (0m11.0s), 100/100 VUs, 97 complete and 0 interrupted iterations
+spike   [  37% ] 100 VUs  11.0s/30s
+
+running (0m12.0s), 100/100 VUs, 1172 complete and 0 interrupted iterations
+spike   [  40% ] 100 VUs  12.0s/30s
+
+running (0m13.0s), 100/100 VUs, 2635 complete and 0 interrupted iterations
+spike   [  43% ] 100 VUs  13.0s/30s
+
+running (0m14.0s), 100/100 VUs, 3468 complete and 0 interrupted iterations
+spike   [  47% ] 100 VUs  14.0s/30s
+
+running (0m15.0s), 100/100 VUs, 3900 complete and 0 interrupted iterations
+spike   [  50% ] 100 VUs  15.0s/30s
+
+running (0m16.0s), 100/100 VUs, 4058 complete and 0 interrupted iterations
+spike   [  53% ] 100 VUs  16.0s/30s
+
+running (0m17.0s), 100/100 VUs, 4217 complete and 0 interrupted iterations
+spike   [  57% ] 100 VUs  17.0s/30s
+
+running (0m18.0s), 100/100 VUs, 4375 complete and 0 interrupted iterations
+spike   [  60% ] 100 VUs  18.0s/30s
+
+running (0m19.0s), 100/100 VUs, 5034 complete and 0 interrupted iterations
+spike   [  63% ] 100 VUs  19.0s/30s
+
+running (0m20.0s), 100/100 VUs, 5834 complete and 0 interrupted iterations
+spike   [  67% ] 100 VUs  20.0s/30s
+
+running (0m21.0s), 100/100 VUs, 7008 complete and 0 interrupted iterations
+spike   [  70% ] 100 VUs  21.0s/30s
+
+running (0m22.0s), 100/100 VUs, 8590 complete and 0 interrupted iterations
+spike   [  73% ] 100 VUs  22.0s/30s
+
+running (0m23.0s), 100/100 VUs, 10154 complete and 0 interrupted iterations
+spike   [  77% ] 100 VUs  23.0s/30s
+time="2025-12-22T20:11:25+09:00" level=warning msg="The test has generated metrics with 100685 unique time series, which is higher than the suggested limit of 100000 and could cause high memory usage. Consider not using high-cardinality values like unique IDs as metric tags or, if you need them in the URL, use the name metric tag or URL grouping. See https://grafana.com/docs/k6/latest/using-k6/tags-and-groups/ for details." component=metrics-engine-ingester
+
+running (0m24.0s), 100/100 VUs, 11677 complete and 0 interrupted iterations
+spike   [  80% ] 100 VUs  24.0s/30s
+
+running (0m25.0s), 100/100 VUs, 13169 complete and 0 interrupted iterations
+spike   [  83% ] 100 VUs  25.0s/30s
+
+running (0m26.0s), 100/100 VUs, 14138 complete and 0 interrupted iterations
+spike   [  87% ] 100 VUs  26.0s/30s
+
+running (0m27.0s), 100/100 VUs, 15271 complete and 0 interrupted iterations
+spike   [  90% ] 100 VUs  27.0s/30s
+
+running (0m28.0s), 100/100 VUs, 16790 complete and 0 interrupted iterations
+spike   [  93% ] 100 VUs  28.0s/30s
+
+running (0m29.0s), 100/100 VUs, 18264 complete and 0 interrupted iterations
+spike   [  97% ] 100 VUs  29.0s/30s
+
+running (0m30.0s), 100/100 VUs, 19659 complete and 0 interrupted iterations
+spike   [ 100% ] 100 VUs  30.0s/30s
+
+
+  █ TOTAL RESULTS 
+
+    checks_total.......: 19773  657.990431/s
+    checks_succeeded...: 0.50%  100 out of 19773
+    checks_failed......: 99.49% 19673 out of 19773
+
+    ✗ bought ticket
+      ↳  0% — ✓ 100 / ✗ 19673
+
+    CUSTOM
+    count_fail.....................: 19673  654.662709/s
+    count_success..................: 100    3.327722/s
+    duration_fail..................: avg=123.579932 min=10.673  med=67.3     max=11137.016 p(90)=137.5896   p(95)=226.7986  
+    duration_success...............: avg=5695.78854 min=117.165 med=5711.364 max=11248.24  p(90)=10137.4204 p(95)=10696.5865
+
+    HTTP
+    http_req_duration..............: avg=151.76ms   min=10.67ms med=67.34ms  max=11.24s    p(90)=143.1ms    p(95)=244.36ms  
+      { expected_response:true }...: avg=151.76ms   min=10.67ms med=67.34ms  max=11.24s    p(90)=143.1ms    p(95)=244.36ms  
+    http_req_failed................: 0.00%  0 out of 19773
+    http_reqs......................: 19773  657.990431/s
+
+    EXECUTION
+    iteration_duration.............: avg=151.84ms   min=10.85ms med=67.4ms   max=11.24s    p(90)=143.27ms   p(95)=244.5ms   
+    iterations.....................: 19773  657.990431/s
+    vus............................: 100    min=100        max=100
+    vus_max........................: 100    min=100        max=100
+
+    NETWORK
+    data_received..................: 2.4 MB 80 kB/s
+    data_sent......................: 2.4 MB 79 kB/s
+
+
+
+
+running (0m30.1s), 000/100 VUs, 19773 complete and 0 interrupted iterations
+spike ✓ [ 100% ] 100 VUs  30s
